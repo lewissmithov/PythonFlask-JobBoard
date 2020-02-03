@@ -18,7 +18,6 @@ def open_connection():
 
 def execute_sql(sql, values=(), commit=False, single=False):
     connection = open_connection()
-    sql = ()
     values = ()
     commit = False
     single = False
