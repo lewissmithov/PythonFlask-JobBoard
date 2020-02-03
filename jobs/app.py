@@ -18,18 +18,14 @@ def open_connection():
 
 def execute_sql(sql, values=(), commit=False, single=False):
     connection = open_connection()
-    values = ()
-    commit = False
-    single = False
-
     cursor = connection.execute(sql, values)
     if commit is True:
         connection.commit()
     else:
-        result = cursor.fetchone() if single else cursor.fetchall()
+        results = cursor.fetchone() if single else cursor.fetchall()
 
     cursor.close()
-    return result
+    return results
 
 
 @app.teardown_appcontext
