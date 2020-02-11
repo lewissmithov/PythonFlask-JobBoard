@@ -2,27 +2,27 @@
 <div class="card adjust-height">
   <header class="card-header">
     <p class="card-header-title">
-        <a>{{ job['title'] }}</a>
+        <a href=""> {{ job['title'] }}</a>
     </p>
   </header>
   <div class="card-content">
     <div class="content">
         <p>
-            <a>{{ job['employer_name'] }}</a><br>
-            <a>{{ job['salary'] }}</a><br>
-            <a>{{ job['description'] }}</a><br>
+            <a href="">{{ job['employer_name'] }}</a><br>
+            {{ job['salary'] }}<br>
+            {{ job['description'] }}
         </p>
     </div>
   </div>
 </div>
 {% endmacro %}
 
-{% show_jobs(jobs) %}
-<div class="columns"></div>
-<div class="is-multiline">
+{% macro show_jobs(jobs) %}
+<div class="columns is-multiline">
     {% for job in jobs %}
-    <div class="column" class="is-half">{% show_job(job) %}</div>
-
+        <div class="column is-half">
+            {{ % show_job(job) %}}
+        </div>
     {% endfor %}
 </div>
 {% endmacro %}
